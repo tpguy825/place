@@ -20,23 +20,24 @@
 		</div>
 		<script>
 			let fullscreen = false;
-			document.querySelector("img").addEventListener("click", () => {
-				if (fullscreen) {
-					document.querySelector("img").style = "";
-					fullscreen = false;
-				} else {
-					document.querySelector("img").style = "max-width: 100vw; max-height: 100vh; width: 100vw; position: absolute; top: 0; left: 0;";
-					fullscreen = true;
-				}
-			});
-			fetch("https://raw.githubusercontent.com/tpguy825/place/main/recent.json")
+			fetch("recent.json")
 				.then((r) => r.json())
 				.then((/** @type {{ filename: string, date: number }} */ { filename, date }) => {
 					document.getElementById("what").innerHTML = `<img
-	src="https://raw.githubusercontent.com/tpguy825/place/main/${filename}"
+	src="${filename}"
 	alt="r/place snapshot" 
 	class="w-full" />
-Most recent snapshot (above) taken at ${new Date(date).toLocaleString()} - Click the image to view full screen.`;
+	Most recent snapshot (above) taken at ${new Date(date).toLocaleString()} - Click the image to view full screen.`;
+					document.querySelector("img").addEventListener("click", () => {
+						if (fullscreen) {
+							document.querySelector("img").style = "";
+							fullscreen = false;
+						} else {
+							document.querySelector("img").style =
+								"max-width: 100vw; max-height: 100vh; width: 100vw; position: absolute; top: 0; left: 0;";
+							fullscreen = true;
+						}
+					});
 				});
 		</script>
 	</body>
