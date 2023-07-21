@@ -19,7 +19,7 @@
 			</div>
 		</div>
 		<script>
-			fetch("recent.json")
+			fetch("https://raw.githubusercontent.com/tpguy825/place/main/recent.json")
 				.then((r) => r.json())
 				.then((/** @type {{ filename: string, date: number }} */ { filename, date }) => {
 					document.getElementById("what").innerHTML = `<img
