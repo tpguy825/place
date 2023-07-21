@@ -1,0 +1,13 @@
+{
+	"compilerOptions": {
+		"strict": true,
+		"forceConsistentCasingInFileNames": true,
+		"esModuleInterop": true,
+		"module": "CommonJS",
+		"moduleResolution": "Node16",
+		"target": "ES2022",
+		"strictNullChecks": true,
+		"strictFunctionTypes": true,
+		"skipDefaultLibCheck": true,
+	},
+}
