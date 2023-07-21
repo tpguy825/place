@@ -28,3 +28,7 @@ app.post("/upload", (req: Request<{}, {}, Body>, res) => {
 		res.status(500).json({ success: false, error: e.message });
 	}
 });
+
+app.listen(3000, () => {
+	console.log("Listening on port 3000");
+})
