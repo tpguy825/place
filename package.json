@@ -1,6 +1,6 @@
 {
 	"name": "place-capture",
-	"packageManager": "yarn@3.6.0",
+	"packageManager": "yarn@3.6.1",
 	"version": "1.0.0",
 	"scripts": {
 		"start": "ts-node src/run-place.ts",
