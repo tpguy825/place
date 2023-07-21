@@ -4,10 +4,10 @@ import type { Browser } from "puppeteer";
 
 export async function run(browser: Browser, callback?: (response: Uint8Array, filename: string) => void) {
 	const page = await browser.newPage();
-	await page.goto("https://reddit.com/r/place?cx=-34&cy=140&px=1151&screenmode=fullscreen");
+	await page.goto("https://reddit.com/r/place?cx=285&cy=-18&px=1151&screenmode=fullscreen");
 	const wgat = await page
 		.waitForSelector(
-			`iframe[src="https://garlic-bread.reddit.com/embed?screenmode=fullscreen&cx=-34&cy=140&px=1151&locale=en-US"`
+			`iframe[src="https://garlic-bread.reddit.com/embed?screenmode=fullscreen&cx=285&cy=-18&px=1151&locale=en-US"`,
 		)
 		.then((e) => e?.contentFrame());
 	const whuy = await (
