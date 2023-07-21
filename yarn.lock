@@ -803,6 +803,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"place-capture@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "place-capture@workspace:."
+  dependencies:
+    "@types/node": ^20.4.2
+    puppet-canvas: "https://github.com/tpguy825/puppet-canvas.git"
+    puppeteer: ^20.9.0
+    ts-node: ^10.9.1
+    typescript: ^5.1.6
+  languageName: unknown
+  linkType: soft
+
 "progress@npm:2.0.3":
   version: 2.0.3
   resolution: "progress@npm:2.0.3"
@@ -1102,18 +1114,6 @@ __metadata:
   checksum: 78089ad549e21bcdbfca10c08850022b22024cdcc2da9b168bcf5a73a6ed7bf01a9cebb9eac28e03cd23a684d81e0502797e88f3ccd27a32aeab1cfc44c39da0
   languageName: node
   linkType: hard
-
-"wa-chatgpt@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "wa-chatgpt@workspace:."
-  dependencies:
-    "@types/node": ^20.4.2
-    puppet-canvas: "https://github.com/tpguy825/puppet-canvas.git"
-    puppeteer: ^20.9.0
-    ts-node: ^10.9.1
-    typescript: ^5.1.6
-  languageName: unknown
-  linkType: soft
 
 "webidl-conversions@npm:^3.0.0":
   version: 3.0.1
