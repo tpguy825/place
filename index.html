@@ -23,7 +23,7 @@
 				.then((r) => r.json())
 				.then((/** @type {{ filename: string, date: number }} */ { filename, date }) => {
 					document.getElementById("what").innerHTML = `<img
-	src="https://raw.githubusercontent.com/tpguy825/place/main/place/${filename}"
+	src="https://raw.githubusercontent.com/tpguy825/place/main/${filename}"
 	alt="r/place snapshot" />
 Most recent snapshot (above) taken at ${new Date(date).toLocaleString()}`;
 				});
