@@ -18,3 +18,4 @@ dist
 .wwebjs_cache
 .pnp.*
 node_modules
+commit.bat
