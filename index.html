@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="index.css" />
+		<title>Document</title>
+	</head>
+	<body>
+		<div class="pixelated mx-auto my-8 flex max-w-lg justify-center">
+			<div class="block">
+				<h1 class="mb-4 text-2xl flex justify-center font-bold">r/place snapshots</h1>
+				<div class="text-gray-400" id="what">Loading...</div>
+				<a
+					href="https://github.com/tpguy825/place/blob/main/place"
+					class="text-blue-500 underline hover:text-blue-600">
+					View full list
+				</a>
+			</div>
+		</div>
+		<script>
+			fetch("recent.json")
+				.then((r) => r.json())
+				.then((/** @type {{ filename: string, date: number }} */ { filename, date }) => {
+					document.getElementById("what").innerHTML = `<img
+	src="https://raw.githubusercontent.com/tpguy825/place/main/place/${filename}"
+	alt="r/place snapshot" />
+Most recent snapshot (above) taken at ${new Date(date).toLocaleString()}`;
+				});
+		</script>
+	</body>
+</html>
