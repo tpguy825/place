@@ -26,7 +26,7 @@
 					document.getElementById("what").innerHTML = `<img
 	src="${filename}"
 	alt="r/place snapshot" 
-	class="w-full" />
+	class="w-full pixelated" />
 	Most recent snapshot (above) taken at ${new Date(date).toLocaleString()} - Click the image to view full screen.`;
 					document.querySelector("img").addEventListener("click", () => {
 						if (fullscreen) {
