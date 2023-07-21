@@ -16,7 +16,7 @@ pnpm import # this imports from yarn.lock
 yarn
 ```
 
-By default, the interval option runs every 3 minutes. To chenge this, edit line 13 of `src/place.ts`.
+By default, the interval option runs every 3 minutes. Change this in `src/config.ts` if you want to
 
 Run it on an interval:
 
