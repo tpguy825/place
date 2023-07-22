@@ -4,7 +4,7 @@
 		"forceConsistentCasingInFileNames": true,
 		"esModuleInterop": true,
 		"module": "CommonJS",
-		"moduleResolution": "Node16",
+		"moduleResolution": "Node",
 		"target": "ES2022",
 		"strictNullChecks": true,
 		"strictFunctionTypes": true,

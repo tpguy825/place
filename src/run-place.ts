@@ -2,7 +2,6 @@ import puppeteer from "puppeteer";
 import { run } from "./place";
 import config from "./config";
 import { existsSync, writeFileSync } from "fs";
-import { upload } from "./hidden";
 
 (async () => {
 	const browser = await puppeteer.launch(config.puppeteer);
@@ -14,7 +13,7 @@ import { upload } from "./hidden";
 				filename,
 			}),
 		);
-		if (process.platform === "win32" && existsSync("C:\\projects\\place\\src\\hidden.ts")) (await import("./hidden.js")).upload(filename, data);
+		if (process.platform === "win32" && existsSync("C:\\projects\\place\\src\\hidden.ts")) (await import("./hidden")).upload(filename, data);
 	}
 	const page = await browser.newPage();
 	await run(page, callback);
