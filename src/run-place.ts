@@ -13,11 +13,14 @@ import { existsSync, writeFileSync } from "fs";
 				filename,
 			}),
 		);
-		if (process.platform === "win32" && existsSync("C:\\projects\\place\\src\\hidden.ts")) (await import("./hidden")).upload(filename, data);
+		if (process.platform === "win32" && existsSync("C:\\projects\\place\\src\\hidden.ts"))
+			(await import("./hidden")).upload(filename, data);
 	}
 	const page = await browser.newPage();
-	await run(page, callback);
+	const url = "https://reddit.com/r/place?cx=-17&cy=-76&px=276&screenmode=fullscreen";
+	await page.goto(url);
+	await run(url, page, callback);
 	setInterval(async () => {
-		await run(page, callback);
+		await run(url, page, callback);
 	}, config.interval);
 })();
