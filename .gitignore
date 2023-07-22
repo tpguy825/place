@@ -22,4 +22,3 @@ commit.bat
 src/hidden.ts
 refresh-oracle.bat
 src/server.ts
-src/serve.ts
