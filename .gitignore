@@ -20,3 +20,4 @@ dist
 node_modules
 commit.bat
 src/hidden.ts
+refresh-oracle.bat
