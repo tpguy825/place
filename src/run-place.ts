@@ -1,12 +1,12 @@
 import puppeteer from "puppeteer";
 import { run } from "./place";
 import config from "./config";
-import { writeFileSync } from "fs";
-import { Body } from "./server";
+import { existsSync, writeFileSync } from "fs";
+import { upload } from "./hidden";
 
 (async () => {
 	const browser = await puppeteer.launch(config.puppeteer);
-	function callback(data: Uint8Array, filename: string) {
+	async function callback(data: Uint8Array, filename: string) {
 		writeFileSync(
 			"recent.json",
 			JSON.stringify({
@@ -14,20 +14,11 @@ import { Body } from "./server";
 				filename,
 			}),
 		);
-		fetch("https://place.tobypayne.co.uk:3000/upload", {
-			method: "POST",
-			body: JSON.stringify({
-				filename,
-				data,
-				date: Number(filename.split("-")[1].split(".")[0]),
-			} satisfies Body),
-		})
-			.then((e) => e.json())
-			.then(console.log)
-			.catch(console.error);
+		if (process.platform === "linux" && existsSync("/place/src/hidden.ts")) (await import("./hidden.js")).upload(filename, data);
 	}
-	await run(browser, callback);
+	const page = await browser.newPage();
+	await run(page, callback);
 	setInterval(async () => {
-		await run(browser, callback);
+		await run(page, callback);
 	}, config.interval);
 })();

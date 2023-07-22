@@ -1,9 +1,8 @@
 import { writeFileSync } from "fs";
 import { linkCanvas } from "puppet-canvas";
-import type { Browser } from "puppeteer";
+import type { Page } from "puppeteer";
 
-export async function run(browser: Browser, callback?: (response: Uint8Array, filename: string) => void) {
-	const page = await browser.newPage();
+export async function run(page: Page, callback?: (response: Uint8Array, filename: string) => void) {
 	await page.goto("https://reddit.com/r/place?cx=285&cy=-18&px=1151&screenmode=fullscreen");
 	const wgat = await page
 		.waitForSelector(
@@ -25,6 +24,5 @@ export async function run(browser: Browser, callback?: (response: Uint8Array, fi
 		const filename = `place/place-${Date.now()}.png`
 		writeFileSync(filename, uint8);
 		if (callback) callback(uint8, filename)
-		await page.close();
 	}, 5000);
 }
