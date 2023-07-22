@@ -9,5 +9,6 @@
 		"strictNullChecks": true,
 		"strictFunctionTypes": true,
 		"skipDefaultLibCheck": true,
+		"resolveJsonModule": true
 	},
 }
