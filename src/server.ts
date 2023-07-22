@@ -1,3 +1,4 @@
+import { exec } from "child_process";
 import express, { type Request } from "express";
 import { writeFileSync } from "fs";
 const app = express();
@@ -12,18 +13,15 @@ app.get("/", (_req, res) => {
 	res.send("Hello World!");
 });
 
-app.post("/upload", (req: Request<{}, {}, Body>, res) => {
+app.get("/upload", (req: Request<{}, {}, Body>, res) => {
 	try {
-		const { data, filename, date } = req.body;
-		writeFileSync(filename, data);
-		writeFileSync(
-			"recent.json",
-			JSON.stringify({
-				date,
-				filename,
-			}),
-		);
-		res.status(200).json({ success: true });
+		exec(`git pull`, (err, stdout, stderr) => {
+			if (err) {
+				res.status(500).json({ success: false, error: err.message });
+			} else {
+				res.status(200).json({ success: true });
+			}
+		})
 	} catch (e: any) {
 		res.status(500).json({ success: false, error: e.message });
 	}
