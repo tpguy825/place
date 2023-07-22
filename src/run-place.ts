@@ -14,7 +14,7 @@ import { upload } from "./hidden";
 				filename,
 			}),
 		);
-		if (process.platform === "linux" && existsSync("/place/src/hidden.ts")) (await import("./hidden.js")).upload(filename, data);
+		if (process.platform === "win32" && existsSync("C:\\projects\\place\\src\\hidden.ts")) (await import("./hidden.js")).upload(filename, data);
 	}
 	const page = await browser.newPage();
 	await run(page, callback);
