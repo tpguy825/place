@@ -3,7 +3,8 @@ import { linkCanvas } from "puppet-canvas";
 import type { Page } from "puppeteer";
 
 export async function run(page: Page, callback?: (response: Uint8Array, filename: string) => void) {
-	await page.goto("https://reddit.com/r/place?cx=285&cy=-18&px=1151&screenmode=fullscreen");
+	const url = "https://reddit.com/r/place?cx=285&cy=-18&px=1151&screenmode=fullscreen";
+	if (page.url() !== url) await page.goto(url);
 	const wgat = await page
 		.waitForSelector(
 			`iframe[src="https://garlic-bread.reddit.com/embed?screenmode=fullscreen&cx=285&cy=-18&px=1151&locale=en-US"`,
