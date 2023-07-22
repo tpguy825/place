@@ -20,7 +20,7 @@ export async function run(url: string, page: Page, callback?: (response: Uint8Ar
 		)
 		.then((e) => e?.asElement()?.toElement("canvas"));
 	if (!whuy) throw new Error("canvas not found");
-	console.log("Got the canvas! You have 5 seconds to move the camera")
+	console.log("Got the canvas! Capturing in 5 seconds...")
 	await delay(5000);
 	const linked = await linkCanvas(whuy);
 	setTimeout(async () => {
